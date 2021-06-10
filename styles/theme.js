@@ -1,4 +1,3 @@
-import React from 'react';
 import { theme as chakraTheme } from '@chakra-ui/react';
 
 const theme = {
@@ -12,8 +11,6 @@ const theme = {
     medium: 600,
     bold: 700
   },
-
-
 };
 
 export default theme;
