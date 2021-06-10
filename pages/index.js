@@ -8,7 +8,7 @@ const Home = () => {
       <main>
         <Heading fontWeight="bold">Fast Feedback</Heading>
         <Text>
-          Current User:{' '}
+          Current User:
           <Code>{auth.user ? auth.user.email : 'None'}</Code>
         </Text>
         {auth.user?.photoURL && (
