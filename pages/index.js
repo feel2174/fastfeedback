@@ -1,5 +1,7 @@
 import { useAuth } from '@/lib/auth';
+
 import { Heading, Button, Text, Code } from '@chakra-ui/react';
+
 
 const Home = () => {
   const auth = useAuth();
@@ -10,6 +12,7 @@ const Home = () => {
         <Text>
           Current User:{' '}
           <Code>{auth.user ? auth.user.email : 'None'}</Code>
+
         </Text>
         {auth.user?.photoURL && (
           <img width={100} height={100} src={auth.user?.photoURL} />
@@ -23,6 +26,7 @@ const Home = () => {
           >
             Sign In
           </Button>
+
         )}
       </main>
     </div>
