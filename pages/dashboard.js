@@ -1,4 +1,4 @@
-import DashBoardShell from '@/components/DashBoardShell';
+import DashBoardShell from '../components/DashboardShell';
 
 const DashBoard = () => {
   return (
