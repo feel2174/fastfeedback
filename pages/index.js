@@ -1,7 +1,7 @@
 import { useAuth } from '@/lib/auth';
 import { Heading, Button, Text, Code, Icon, Box, Flex } from '@chakra-ui/react';
 import Head from 'next/head';
-
+import EmptyState from 'components/EmptyState';
 const Home = () => {
   const auth = useAuth();
   return (
@@ -25,10 +25,9 @@ const Home = () => {
         <img width={100} height={100} src={auth.user?.photoURL} />
       )}
       {auth.user ? (
-        <Button mt={10} variant="link" size="sm" onClick={() => auth.signOut()}>
-          Sign Out
-        </Button>
+        <EmptyState />
       ) : (
+        // <Button onClick={() => auth.signOut()}>Sign Out</Button>
         <Button
           mt={10}
           size="sm"
