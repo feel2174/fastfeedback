@@ -27,13 +27,18 @@ const DashBoardShell = ({ children }) => {
           alignItems="center"
           align="center"
         >
-          <Icon name="logo" color="black" size="24px" />
+          <Icon viewBox="0 0 200 200" color="blue.500">
+            <path
+              fill="currentColor"
+              d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+            />
+          </Icon>
           <Link>Feedback</Link>
           <Link>Sites</Link>
         </Stack>
         <Flex justifyContent="space-between" alignItems="center">
-          <Link mr={4}>Account</Link>
-          <Avatar size="sm" src={auth.user.photoUrl} />
+          <Link mr={4}>Log Out</Link>
+          <Avatar size="sm" src={auth.user?.photoUrl} />
         </Flex>
       </Flex>
       <Flex

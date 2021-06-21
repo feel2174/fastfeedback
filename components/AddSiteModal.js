@@ -12,16 +12,34 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
+  useToast,
   useDisclosure,
 } from '@chakra-ui/react';
 import { createSite } from '@/lib/db';
+import { useAuth } from '@/lib/auth';
 
 const AddSiteModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { register, handleSubmit } = useForm();
+  const toast = useToast();
+  const auth = useAuth();
 
-  const onCreateSite = (values) => {
-    createSite(values);
+  const onCreateSite = ({ site, url }) => {
+    console.log(site, url);
+    createSite({
+      authorId: auth.user.uid,
+      createdAt: new Date().toISOString(),
+      site,
+      url,
+    });
+    toast({
+      title: 'Success!',
+      description: "We've added your site.",
+      status: 'success',
+      duration: 5000,
+      isClosable: true,
+    });
+    onClose();
   };
   const initialRef = useRef();
   const finalRef = useRef();
@@ -53,15 +71,14 @@ const AddSiteModal = () => {
               <Input
                 placeholder="My Site"
                 ref={initialRef}
-                {...register('name', { required: 'Required' })}
+                {...register('site', { required: 'Required' })}
               />
             </FormControl>
-
             <FormControl mt={4}>
               <FormLabel>Link</FormLabel>
               <Input
                 placeholder="https://website.com"
-                {...register('website', {
+                {...register('url', {
                   required: 'Required',
                 })}
               />

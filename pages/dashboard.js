@@ -1,15 +1,23 @@
+import DashBoardShell from '@/components/DashboardShell';
 import EmptyState from '@/components/EmptyState';
+import SiteTableSkeleton from '@/components/SiteTableSkeleton';
 import { useAuth } from '@/lib/auth';
-import { Heading, Button, Text, Code, Icon, Box, Flex } from '@chakra-ui/react';
-import Head from 'next/head';
 
 const DashBoard = () => {
   const auth = useAuth();
 
   if (!auth.user) {
-    return 'Loading....';
+    return (
+      <DashBoardShell>
+        <SiteTableSkeleton />
+      </DashBoardShell>
+    );
   }
-  return <EmptyState />;
+  return (
+    <DashBoardShell>
+      <EmptyState />
+    </DashBoardShell>
+  );
 };
 
 export default DashBoard;
