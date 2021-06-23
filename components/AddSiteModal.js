@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import useSWR, { mutate } from 'swr';
 import {
   Button,
   FormControl,
@@ -12,16 +13,44 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
+  useToast,
   useDisclosure,
 } from '@chakra-ui/react';
 import { createSite } from '@/lib/db';
+import { useAuth } from '@/lib/auth';
+import fetcher from '@/utils/fetcher';
 
-const AddSiteModal = () => {
+const AddSiteModal = ({ children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { register, handleSubmit } = useForm();
+  const toast = useToast();
+  const auth = useAuth();
+  const { data } = useSWR('api/sites', fetcher);
 
-  const onCreateSite = (values) => {
-    createSite(values);
+  const onCreateSite = ({ name, url }) => {
+    const newSite = {
+      authorId: auth.user.uid,
+      createdAt: new Date().toISOString(),
+      name,
+      url,
+    };
+    createSite(newSite);
+    toast({
+      title: 'Success!',
+      description: "We've added your site.",
+      status: 'success',
+      duration: 5000,
+      isClosable: true,
+    });
+    // mutate('api/sites', { sites: [...data.sites, newSite] });
+    mutate(
+      'api/sites',
+      async (data) => {
+        return { sites: [...data.sites, newSite] };
+      },
+      false,
+    );
+    onClose();
   };
   const initialRef = useRef();
   const finalRef = useRef();
@@ -29,13 +58,18 @@ const AddSiteModal = () => {
   return (
     <>
       <Button
-        backgroundColor="black"
-        fontWeight="normal"
-        maxW="200px"
+        display="flex"
+        backgroundColor="gray.900"
         color="white"
+        fontWeight="medium"
         onClick={onOpen}
+        _hover={{ bg: 'gray.700' }}
+        _active={{
+          bg: 'gray.800',
+          transform: 'scale(0.95)',
+        }}
       >
-        Add your First Site
+        {children}
       </Button>
       <Modal
         initialFocusRef={initialRef}
@@ -56,12 +90,11 @@ const AddSiteModal = () => {
                 {...register('name', { required: 'Required' })}
               />
             </FormControl>
-
             <FormControl mt={4}>
               <FormLabel>Link</FormLabel>
               <Input
                 placeholder="https://website.com"
-                {...register('website', {
+                {...register('url', {
                   required: 'Required',
                 })}
               />

@@ -1,34 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 개발 및 배포 환경
 
-## Getting Started
+- Vercel
+- react 17.x
+- react-hook-form 7.8.6
 
-First, run the development server:
+# 0. 프로젝트 구조
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Project Name**
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- `.husky`
+- `./components`
+- `./lib`
+- `./pages`
+- `./public`
+- `./styles`
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+# 1. 프로젝트 기본 구성 폴더
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+---
 
-## Learn More
+## 1. `.husky`
 
-To learn more about Next.js, take a look at the following resources:
+pre-commit을 실행시키는 husky 설정 폴더입니다.
+commit 할 경우, yarn lint-staged, yarn build 명령어가 자동실행됩니다.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 2. `components`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+재사용을 고려한 컴포넌트들을 구축해놓은 폴더입니다.
 
-## Deploy on Vercel
+## 3. `lib`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Firebase 와 데이터 교환을 위한 파일입니다.
+(Authentication, Firestore)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 4. `pages`
+
+Next.js에서 라우팅에 사용되는 페이지들 입니다.
+
+## 5. `public`
+
+이미지, favicon 등의 static 파일들이 있습니다.
+
+## 6. `styles`
+
+chakra theme를 활용하여 전역으로 관리하는 theme를 설정하는 파일입니다
