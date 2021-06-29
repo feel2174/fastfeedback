@@ -26,7 +26,6 @@ export async function getStaticPaths() {
 }
 
 const SiteFeedback = ({ initialFeedback }) => {
-  console.log(initialFeedback[0]);
   const onSubmit = () => {
     console.log('Hello!');
   };
