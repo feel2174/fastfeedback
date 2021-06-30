@@ -1,6 +1,11 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
+const SITE_NAME = 'Fast Feedback';
+const SITE_TITLE = 'Fast Feedback';
+const SITE_DESCRIPTION = 'Fast Feedback';
+const SITE_IMAGE = '/images/OG.png';
+
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet();
@@ -113,6 +118,18 @@ class MyDocument extends Document {
             content="/icons/ms-icon-144x144.png"
           />
           <meta name="theme-color" content="#ffffff" />
+          <link rel="canonical" href="https://fastfeedback-orcin.vercel.app/" />
+          <meta name="description" content={SITE_DESCRIPTION} />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content={SITE_NAME} />
+          <meta property="og:title" content={SITE_TITLE} />
+          <meta property="og:description" content={SITE_DESCRIPTION} />
+          <meta property="og:image" content={SITE_IMAGE} />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content={SITE_NAME} />
+          <meta name="twitter:title" content={SITE_TITLE} />
+          <meta name="twitter:description" content={SITE_DESCRIPTION} />
+          <meta property="twitter:image" content={SITE_IMAGE} />
         </Head>
         <body>
           <Main />

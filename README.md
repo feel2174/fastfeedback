@@ -1,8 +1,10 @@
 ## 개발 및 배포 환경
 
 - Vercel
+- Next 11.0.0
 - react 17.x
 - react-hook-form 7.8.6
+- Chakra-ui/react 1.63
 
 # 0. 프로젝트 구조
 

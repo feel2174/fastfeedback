@@ -8,6 +8,7 @@ const GlobalStyle = ({ children }) => {
   return (
     <>
       <Head>
+        <title>Fast Feedback</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
       <CSSReset />
