@@ -7,7 +7,7 @@ import Head from 'next/head';
 const SITE_NAME = 'Fast Feedback';
 const SITE_TITLE = 'Fast Feedback';
 const SITE_DESCRIPTION = 'Fast Feedback';
-const SITE_IMAGE = '/images/og.png';
+const SITE_IMAGE = 'https://fastfeedback-orcin.vercel.app/images/og.png';
 
 const GlobalStyle = ({ children }) => {
   return (
