@@ -13,7 +13,6 @@ const GlobalStyle = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Fast Feedback</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta httpEquiv="Content-Type" content="text/xml; charset=utf-8" />

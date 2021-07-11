@@ -1,10 +1,13 @@
 import { useAuth } from '@/lib/auth';
 import { Heading, Button, Flex } from '@chakra-ui/react';
-
+import Head from 'next/head';
 const Home = () => {
   const auth = useAuth();
   return (
     <>
+      <Head>
+        <title>Fast Feedback</title>
+      </Head>
       <Flex
         as="main"
         direction="column"

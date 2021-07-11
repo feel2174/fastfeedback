@@ -5,25 +5,23 @@ import SiteTableSkeleton from '@/components/SiteTableSkeleton';
 import { useAuth } from '@/lib/auth';
 import fetcher from '@/utils/fetcher';
 import SiteTable from '@/components/SiteTable';
+import SiteTableHeader from '@/components/SiteTableHeader';
 const DashBoard = () => {
   const { user } = useAuth();
-
   const { data } = useSWR(user ? ['api/sites', user.token] : null, fetcher);
 
   if (!data) {
     return (
       <DashBoardShell>
+        <SiteTableHeader />
         <SiteTableSkeleton />
       </DashBoardShell>
     );
   }
   return (
     <DashBoardShell>
-      {data.sites.length != 0 ? (
-        <SiteTable sites={data.sites} />
-      ) : (
-        <EmptyState />
-      )}
+      <SiteTableHeader />
+      {data.sites ? <SiteTable sites={data.sites} /> : <EmptyState />}
     </DashBoardShell>
   );
 };

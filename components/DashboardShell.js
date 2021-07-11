@@ -41,7 +41,9 @@ const DashBoardShell = ({ children }) => {
           <Link href="/dashboard">Sites</Link>
         </Stack>
         <Flex justifyContent="space-between" alignItems="center">
-          <Link mr={4}>Log Out</Link>
+          <Link mr={4} onClick={() => auth.signOut()}>
+            Log Out
+          </Link>
           <Avatar size="sm" src={auth.user?.photoUrl} />
         </Flex>
       </Flex>
