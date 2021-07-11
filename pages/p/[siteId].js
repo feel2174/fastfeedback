@@ -36,7 +36,6 @@ const SiteFeedback = ({ initialFeedback }) => {
   const router = useRouter();
   const inputEl = useRef(null);
   const [allFeedback, setAllFeedback] = useState(initialFeedback);
-
   const onSubmit = (e) => {
     e.preventDefault();
     const newFeedback = {

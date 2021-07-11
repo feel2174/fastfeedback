@@ -39,10 +39,9 @@ const AddSiteModal = ({ children }) => {
       title: 'Success!',
       description: "We've added your site.",
       status: 'success',
-      duration: 5000,
+      duration: 3000,
       isClosable: true,
     });
-    // mutate('api/sites', { sites: [...data.sites, newSite] });
     mutate(
       ['api/sites', auth.user.token],
       async (data) => {
