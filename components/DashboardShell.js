@@ -47,7 +47,7 @@ const DashBoardShell = ({ children }) => {
         flexDirection="column"
         color="gray.50"
         height="100vh"
-        maxWidth="800px"
+        maxWidth="1000px"
         ml="auto"
         mr="auto"
         width="100%"
@@ -55,15 +55,7 @@ const DashBoardShell = ({ children }) => {
         borderRadius={4}
         p={8}
       >
-        <Flex
-          maxWidth="1200px"
-          w="100%"
-          ml="auto"
-          mr="auto"
-          flexDirection="column"
-        >
-          {children}
-        </Flex>
+        {children}
       </Flex>
     </Flex>
   );

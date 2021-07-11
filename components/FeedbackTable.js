@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Code } from '@chakra-ui/react';
+import { Box, Code, Switch } from '@chakra-ui/react';
 import { Table, Tr, Th, Td } from './Table';
+import RemoveButton from './RemoveButton';
 
 const FeedbackTable = ({ allFeedback }) => {
   return (
@@ -22,7 +23,15 @@ const FeedbackTable = ({ allFeedback }) => {
             <Td>
               <Code>{'/'}</Code>
             </Td>
-            <Td>{'Remove'}</Td>
+            <Td>
+              <Switch
+                colorScheme="red"
+                defaultChecked={feedback.status === 'active'}
+              />
+            </Td>
+            <Td>
+              <RemoveButton feedbackId={feedback.id} />
+            </Td>
           </Box>
         ))}
       </tbody>
