@@ -1,7 +1,6 @@
 import { useAuth } from '@/lib/auth';
-import { Heading, Button, Text, Code, Icon, Box, Flex } from '@chakra-ui/react';
-import Router from 'next/router';
-import EmptyState from 'components/EmptyState';
+import { Heading, Button, Flex } from '@chakra-ui/react';
+
 const Home = () => {
   const auth = useAuth();
   return (
