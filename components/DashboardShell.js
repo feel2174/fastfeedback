@@ -64,20 +64,6 @@ const DashBoardShell = ({ children }) => {
           mr="auto"
           flexDirection="column"
         >
-          <Breadcrumb>
-            <BreadcrumbItem isCurrentPage>
-              <BreadcrumbLink color="gray.700" fontSize="sm">
-                Sites
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-          </Breadcrumb>
-          <Flex justifyContent="space-between">
-            <Heading color="black" mb={8}>
-              My Sites
-            </Heading>
-
-            <AddSiteModal>+ Add Site</AddSiteModal>
-          </Flex>
           {children}
         </Flex>
       </Flex>
