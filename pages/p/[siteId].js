@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import Feedback from '@/components/Feedback';
 import { useAuth } from '@/lib/auth';
 import { createFeedback } from '@/lib/db';
-import { getAllFeedback, getAllSites } from '@/lib/db-admin';
+import { getAllFeedback, getAllSites, getUserSites } from '@/lib/db-admin';
 
 export async function getStaticProps(context) {
   const siteId = context.params.siteId;
@@ -35,7 +35,7 @@ const SiteFeedback = ({ initialFeedback }) => {
   const router = useRouter();
   const inputEl = useRef(null);
   const [allFeedback, setAllFeedback] = useState(initialFeedback);
-
+  console.log(allFeedback);
   const onSubmit = (e) => {
     e.preventDefault();
     const newFeedback = {
