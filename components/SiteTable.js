@@ -4,7 +4,8 @@ import { Table, Tr, Th, Td } from './Table';
 import { format, parseISO } from 'date-fns';
 import NextLink from 'next/link';
 
-const SiteTable = ({ sites }) => {
+const SiteTable = (props) => {
+  const { sites } = props;
   return (
     <Table>
       <thead>
@@ -22,7 +23,7 @@ const SiteTable = ({ sites }) => {
             <Td>{site.url}</Td>
             <Td>
               <NextLink href="/p/[siteId]" as={`/p/${site.id}`} passHref>
-                <Link color="blue.500" fontWeight="medium">
+                <Link color="blue.500" fontWeight="bold">
                   View Feedback
                 </Link>
               </NextLink>

@@ -20,12 +20,12 @@ import { createSite } from '@/lib/db';
 import { useAuth } from '@/lib/auth';
 import fetcher from '@/utils/fetcher';
 
-const AddSiteModal = ({ children }) => {
+const AddSiteModal = (props) => {
+  const { children } = props;
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { register, handleSubmit } = useForm();
   const toast = useToast();
   const auth = useAuth();
-  const { data } = useSWR('api/sites', fetcher);
 
   const onCreateSite = ({ name, url }) => {
     const newSite = {

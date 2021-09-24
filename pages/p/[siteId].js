@@ -32,7 +32,8 @@ export async function getStaticPaths() {
   };
 }
 
-const SiteFeedback = ({ initialFeedback }) => {
+const SiteFeedback = (props) => {
+  const { initialFeedback } = props;
   const auth = useAuth();
   const router = useRouter();
   const inputEl = useRef(null);
@@ -53,7 +54,7 @@ const SiteFeedback = ({ initialFeedback }) => {
   };
   return (
     <>
-      <DashBoardShell>
+      <DashBoardShell title="View FeedBack">
         <Box
           display="flex"
           flexDirection="column"

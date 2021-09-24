@@ -1,8 +1,11 @@
 import { useAuth } from '@/lib/auth';
 import { Heading, Button, Flex, Box, Text } from '@chakra-ui/react';
 import Head from 'next/head';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 const Home = () => {
   const auth = useAuth();
+
   return (
     <Flex
       as="main"
@@ -13,7 +16,7 @@ const Home = () => {
     >
       <Head>
         <title>Fast Feedback</title>
-        {/* <script
+        <script
           dangerouslySetInnerHTML={{
             __html: `
           if (document.cookie && document.cookie.includes('fast-feedback-auth')) {
@@ -21,25 +24,33 @@ const Home = () => {
           }
         `,
           }}
-        /> */}
+        />
       </Head>
-      <Heading>Welcome to Site</Heading>
-      {auth.user?.photoURL && (
-        <img width={100} height={100} src={auth.user?.photoURL} />
+      <Heading>Welcome to Fast Feedback</Heading>
+      <Heading size="md" my={10} color="gray.500">
+        Get feedback on your site instantly
+      </Heading>
+      {auth.user?.photoUrl && (
+        <img
+          style={{ borderRadius: 50 }}
+          width={100}
+          height={100}
+          src={auth.user?.photoUrl}
+        />
       )}
       {auth.user ? (
         <Button
           as="a"
           href="/dashboard"
-          backgroundColor="gray.900"
-          color="white"
-          textAlign="center"
+          mt={10}
+          backgroundColor="white"
+          color="gray.900"
+          variant="outline"
           fontWeight="medium"
-          mt={100}
-          maxW="200px"
-          _hover={{ bg: 'gray.700' }}
+          size="lg"
+          _hover={{ bg: 'gray.300' }}
           _active={{
-            bg: 'gray.800',
+            bg: 'gray.100',
             transform: 'scale(0.95)',
           }}
         >
@@ -47,14 +58,42 @@ const Home = () => {
         </Button>
       ) : (
         // <Button onClick={() => auth.signOut()}>Sign Out</Button>
-        <Button
-          mt={100}
-          size="sm"
-          type="button"
-          onClick={() => auth.signInWithGitHub()}
-        >
-          Sign In
-        </Button>
+        <Box d="flex" flexDirection="column" mt={100}>
+          <Button
+            leftIcon={<FaGithub />}
+            backgroundColor="gray.900"
+            fontWeight="medium"
+            color="white"
+            size="sm"
+            type="button"
+            _hover={{ bg: 'gray.800' }}
+            _active={{
+              bg: 'gray.100',
+              transform: 'scale(0.95)',
+            }}
+            onClick={() => auth.signInWithGitHub()}
+          >
+            Sign In with Github
+          </Button>
+          <Button
+            mt={10}
+            backgroundColor="white"
+            color="gray.900"
+            variant="outline"
+            leftIcon={<FcGoogle />}
+            size="sm"
+            fontWeight="medium"
+            type="button"
+            _hover={{ bg: 'gray.100' }}
+            _active={{
+              bg: 'gray.100',
+              transform: 'scale(0.95)',
+            }}
+            onClick={() => auth.signInWithGoogle()}
+          >
+            Sign In with Google
+          </Button>
+        </Box>
       )}
       <Box
         mt={8}
@@ -65,9 +104,6 @@ const Home = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Heading size="md" color="black">
-          Get feedback on your site instantly
-        </Heading>
         <Text color="black">Start today, then grow with us </Text>
         <Button
           variant="solid"

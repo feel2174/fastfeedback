@@ -11,7 +11,7 @@ const theme = {
     medium: 600,
     bold: 700,
   },
-  icons: {
+  icon: {
     ...chakraTheme.icons,
     logo: {
       path: (

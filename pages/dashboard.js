@@ -12,14 +12,14 @@ const DashBoard = () => {
 
   if (!data) {
     return (
-      <DashBoardShell>
+      <DashBoardShell title="DashBoard">
         <SiteTableHeader />
         <SiteTableSkeleton />
       </DashBoardShell>
     );
   }
   return (
-    <DashBoardShell>
+    <DashBoardShell title="DashBoard">
       <SiteTableHeader />
       {data.sites ? <SiteTable sites={data.sites} /> : <EmptyState />}
     </DashBoardShell>

@@ -14,11 +14,12 @@ import { DeleteIcon } from '@chakra-ui/icons';
 import { deleteFeedback } from '@/lib/db';
 import { useAuth } from '@/lib/auth';
 
-const RemoveButton = ({ feedbackId }) => {
+const RemoveButton = (props) => {
+  const { feedbackId } = props;
   const [isOpen, setIsOpen] = useState(false);
   const onClose = () => setIsOpen(false);
   const auth = useAuth();
-  const deleteFeed = () => {
+  const deleteFeedItem = () => {
     mutate(
       ['api/feedback', auth.user.token],
       async (data) => {
@@ -33,6 +34,7 @@ const RemoveButton = ({ feedbackId }) => {
     deleteFeedback(feedbackId);
     onClose();
   };
+
   const cancelRef = useRef();
 
   return (
@@ -43,7 +45,6 @@ const RemoveButton = ({ feedbackId }) => {
         icon={<DeleteIcon />}
         variant="ghost"
       />
-
       <AlertDialog
         isOpen={isOpen}
         leastDestructiveRef={cancelRef}
@@ -63,7 +64,7 @@ const RemoveButton = ({ feedbackId }) => {
               <Button ref={cancelRef} onClick={onClose}>
                 Cancel
               </Button>
-              <Button colorScheme="red" onClick={deleteFeed} ml={3}>
+              <Button colorScheme="red" onClick={deleteFeedItem} ml={3}>
                 Delete
               </Button>
             </AlertDialogFooter>
