@@ -6,7 +6,7 @@ import {
   BreadcrumbLink,
   Heading,
 } from '@chakra-ui/react';
-import AddSiteModal from './AddSiteModal';
+import AddSiteModal from '../AddSiteModal';
 
 const SiteTableHeader = () => {
   return (

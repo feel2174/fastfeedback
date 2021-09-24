@@ -20,12 +20,12 @@ import { createSite } from '@/lib/db';
 import { useAuth } from '@/lib/auth';
 import fetcher from '@/utils/fetcher';
 
-const AddSiteModal = (props) => {
-  const { children } = props;
+const AddSiteModal = ({ children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { register, handleSubmit } = useForm();
   const toast = useToast();
   const auth = useAuth();
+  const { data } = useSWR('api/sites', fetcher);
 
   const onCreateSite = ({ name, url }) => {
     const newSite = {
@@ -34,7 +34,7 @@ const AddSiteModal = (props) => {
       name,
       url,
     };
-    createSite(newSite);
+    const { id } = createSite(newSite);
     toast({
       title: 'Success!',
       description: "We've added your site.",
@@ -44,9 +44,9 @@ const AddSiteModal = (props) => {
     });
     mutate(
       ['api/sites', auth.user.token],
-      async (data) => {
-        return { sites: [...data.sites, newSite] };
-      },
+      async (data) => ({
+        sites: [...data.sites, { id, ...newSite }],
+      }),
       false,
     );
     onClose();

@@ -48,7 +48,6 @@ const DashBoardShell = (props) => {
         </Flex>
         <Flex
           flexDirection="column"
-          color="gray.50"
           height="100vh"
           maxWidth="1200px"
           ml="auto"

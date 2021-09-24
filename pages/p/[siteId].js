@@ -2,11 +2,11 @@ import { useRef, useState } from 'react';
 import { Box, Button, FormControl, FormLabel, Input } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 
-import Feedback from '@/components/Feedback';
+import Feedback from '@/components/Feedback/Feedback';
 import { useAuth } from '@/lib/auth';
 import { createFeedback } from '@/lib/db';
 import { getAllFeedback, getAllSites } from '@/lib/db-admin';
-import DashBoardShell from '@/components/DashboardShell';
+import DashBoardShell from '@/components/Dashboard/DashboardShell';
 
 export async function getStaticProps(context) {
   const siteId = context.params.siteId;
@@ -64,9 +64,17 @@ const SiteFeedback = (props) => {
         >
           <Box as="form" onSubmit={onSubmit}>
             <FormControl my={8} id="email">
-              <FormLabel htmlFor="comment">Comment</FormLabel>
+              <FormLabel color="black" htmlFor="comment">
+                Comment
+              </FormLabel>
               <Input color="gray.600" placeholder="Basic usage" ref={inputEl} />
-              <Button bg="gray.500" mt={2} type="submit" fontWeight="medium">
+              <Button
+                color="white"
+                bg="gray.500"
+                mt={2}
+                type="submit"
+                fontWeight="medium"
+              >
                 Add Comment
               </Button>
             </FormControl>
