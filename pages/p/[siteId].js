@@ -2,10 +2,11 @@ import { useRef, useState } from 'react';
 import { Box, Button, FormControl, FormLabel, Input } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 
-import Feedback from '@/components/Feedback';
+import Feedback from '@/components/Feedback/Feedback';
 import { useAuth } from '@/lib/auth';
 import { createFeedback } from '@/lib/db';
 import { getAllFeedback, getAllSites } from '@/lib/db-admin';
+import DashBoardShell from '@/components/Dashboard/DashboardShell';
 
 export async function getStaticProps(context) {
   const siteId = context.params.siteId;
@@ -14,6 +15,7 @@ export async function getStaticProps(context) {
     props: {
       initialFeedback: feedback,
     },
+    revalidate: 1,
   };
 }
 
@@ -30,7 +32,8 @@ export async function getStaticPaths() {
   };
 }
 
-const SiteFeedback = ({ initialFeedback }) => {
+const SiteFeedback = (props) => {
+  const { initialFeedback } = props;
   const auth = useAuth();
   const router = useRouter();
   const inputEl = useRef(null);
@@ -50,26 +53,38 @@ const SiteFeedback = ({ initialFeedback }) => {
     createFeedback(newFeedback);
   };
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      width="full"
-      maxWidth="700px"
-      margin="0 auto"
-    >
-      <Box as="form" onSubmit={onSubmit}>
-        <FormControl my={8} id="email">
-          <FormLabel htmlFor="comment">Comment</FormLabel>
-          <Input ref={inputEl} type="comment" id="comment" />
-          <Button mt={2} type="submit" fontWeight="medium">
-            Add Comment
-          </Button>
-        </FormControl>
-      </Box>
-      {allFeedback?.map((feedback) => (
-        <Feedback key={feedback.id} {...feedback} />
-      ))}
-    </Box>
+    <>
+      <DashBoardShell title="View FeedBack">
+        <Box
+          display="flex"
+          flexDirection="column"
+          width="full"
+          maxWidth="700px"
+          margin="0 auto"
+        >
+          <Box as="form" onSubmit={onSubmit}>
+            <FormControl my={8} id="email">
+              <FormLabel color="black" htmlFor="comment">
+                Comment
+              </FormLabel>
+              <Input color="gray.600" placeholder="Basic usage" ref={inputEl} />
+              <Button
+                color="white"
+                bg="gray.500"
+                mt={2}
+                type="submit"
+                fontWeight="medium"
+              >
+                Add Comment
+              </Button>
+            </FormControl>
+          </Box>
+          {allFeedback?.map((feedback) => (
+            <Feedback key={feedback.id} {...feedback} />
+          ))}
+        </Box>
+      </DashBoardShell>
+    </>
   );
 };
 

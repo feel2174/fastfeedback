@@ -6,21 +6,14 @@ import {
   BreadcrumbLink,
   Heading,
 } from '@chakra-ui/react';
-import AddSiteModal from './AddSiteModal';
+import AddSiteModal from '../AddSiteModal';
 
 const SiteTableHeader = () => {
   return (
     <>
-      <Breadcrumb>
-        <BreadcrumbItem isCurrentPage>
-          <BreadcrumbLink color="gray.700" fontSize="sm">
-            Sites
-          </BreadcrumbLink>
-        </BreadcrumbItem>
-      </Breadcrumb>
       <Flex justifyContent="space-between">
         <Heading color="black" mb={8}>
-          My Sites
+          DashBoard
         </Heading>
         <AddSiteModal>+ Add Site</AddSiteModal>
       </Flex>
