@@ -51,7 +51,6 @@ const DashBoardShell = ({ children }) => {
         ml="auto"
         mr="auto"
         width="100%"
-        backgroundColor="white"
         borderRadius={4}
         p={8}
       >
