@@ -2,8 +2,8 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 const SITE_NAME = 'Fast Feedback';
-const SITE_TITLE = 'Fast Feedback';
-const SITE_DESCRIPTION = 'Fast Feedback';
+const SITE_TITLE = 'Fast Feedback - devzucca';
+const SITE_DESCRIPTION = 'Fast Feedback - Toy Project for Next.js';
 const SITE_IMAGE = 'https://fastfeedback-orcin.vercel.app/images/og.png';
 
 class MyDocument extends Document {
