@@ -15,7 +15,7 @@ const Home = () => {
       align="center"
     >
       <Head>
-        <title>Fast Feedback</title>
+        {/* <title>Fast Feedback</title> */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
