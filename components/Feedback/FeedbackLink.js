@@ -1,20 +1,15 @@
-import { Flex, Link } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 
-export default function FeedbackLink(props) {
-  const { siteId } = props;
+const FeedbackLink = () => {
   return (
     <Flex justifyContent="space-between" mb={8} width="full" mt={1}>
-      <Link
-        fontWeight="bold"
-        fontSize="sm"
-        href={`/p/${siteId}`}
-        target="_parent"
-      >
-        Leave a comment →
-      </Link>
-      <Link fontSize="xs" color="blackAlpha.500" href="/">
+      <Text fontWeight="bold" fontSize="sm">
+        Leave a comment
+      </Text>
+      <Text fontSize="xs" color="blackAlpha.500">
         Powered by Fast Feedback
-      </Link>
+      </Text>
     </Flex>
   );
-}
+};
+export default FeedbackLink;

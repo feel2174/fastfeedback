@@ -7,6 +7,7 @@ import { getAllFeedback, getAllSites } from '@/lib/db-admin';
 
 import Feedback from '@/components/Feedback/Feedback';
 import DashBoardShell from '@/components/Dashboard/DashboardShell';
+import FeedbackLink from '@/components/Feedback/FeedbackLink';
 
 export async function getStaticProps(context) {
   const siteId = context.params.siteId;
@@ -79,6 +80,7 @@ const SiteFeedback = (props) => {
               </Button>
             </FormControl>
           </Box>
+          <FeedbackLink />
           {allFeedback?.map((feedback) => (
             <Feedback key={feedback.id} {...feedback} />
           ))}
