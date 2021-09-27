@@ -1,19 +1,27 @@
 import React from 'react';
 import { Flex, Link, Stack, Avatar, Icon } from '@chakra-ui/react';
 import { useAuth } from '@/lib/auth';
-import Head from 'next/head';
 import NextLink from 'next/link';
+import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 
 const DashBoardShell = (props) => {
   const { children, title = 'Fast FeedBack' } = props;
   const auth = useAuth();
+  const { asPath } = useRouter();
+  const url = `https://fastfeedback-orcin.vercel.app${asPath}`;
   return (
     <>
-      <Head>
+      <NextSeo
+        title={title}
+        canonical={url}
+        openGraph={{ url, title }}
+      ></NextSeo>
+      {/* <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+      </Head> */}
       <Flex flexDirection="column">
         <Flex alignItems="center" justifyContent="space-between" px={8} py={4}>
           <Stack

@@ -120,7 +120,7 @@ class MyDocument extends Document {
 
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta httpEquiv="Content-Type" content="text/xml; charset=utf-8" />
-          <meta name="theme-color" content="#ffffff" />
+          {/* <meta name="theme-color" content="#ffffff" />
           <link rel="canonical" href="https://fastfeedback-orcin.vercel.app/" />
           <meta name="description" content={SITE_DESCRIPTION} />
           <meta property="og:type" content="website" />
@@ -132,7 +132,7 @@ class MyDocument extends Document {
           <meta name="twitter:site" content={SITE_NAME} />
           <meta name="twitter:title" content={SITE_TITLE} />
           <meta name="twitter:description" content={SITE_DESCRIPTION} />
-          <meta property="twitter:image" content={SITE_IMAGE} />
+          <meta property="twitter:image" content={SITE_IMAGE} /> */}
         </Head>
         <body>
           <Main />

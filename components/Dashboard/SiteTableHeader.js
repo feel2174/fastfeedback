@@ -11,7 +11,11 @@ import AddSiteModal from '../AddSiteModal';
 const SiteTableHeader = () => {
   return (
     <>
-      <Flex justifyContent="space-between">
+      <Flex
+        alignItems="center"
+        justifyContent={'space-between'}
+        flexDirection={['column', 'column', 'row']}
+      >
         <Heading color="black" mb={8}>
           DashBoard
         </Heading>

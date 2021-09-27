@@ -60,7 +60,9 @@ const AddSiteModal = ({ children }) => {
         display="flex"
         backgroundColor="gray.900"
         color="white"
+        w={100}
         fontWeight="medium"
+        mb={[10, 10, 0, 0]}
         onClick={onOpen}
         _hover={{ bg: 'gray.700' }}
         _active={{
