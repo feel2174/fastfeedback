@@ -15,7 +15,6 @@ const Home = () => {
       align="center"
     >
       <Head>
-        {/* <title>Fast Feedback</title> */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -39,34 +38,51 @@ const Home = () => {
         />
       )}
       {auth.user ? (
-        <Button
-          as="a"
-          href="/dashboard"
-          mt={10}
-          backgroundColor="white"
-          color="gray.900"
-          variant="outline"
-          fontWeight="medium"
-          size="lg"
-          _hover={{ bg: 'gray.300' }}
-          _active={{
-            bg: 'gray.100',
-            transform: 'scale(0.95)',
-          }}
-        >
-          View Dashboard
-        </Button>
+        <>
+          <Button
+            as="a"
+            href="/dashboard"
+            mt={10}
+            backgroundColor="white"
+            color="gray.900"
+            variant="outline"
+            fontWeight="medium"
+            size="md"
+            _hover={{ bg: 'gray.300' }}
+            _active={{
+              bg: 'gray.100',
+              transform: 'scale(0.95)',
+            }}
+          >
+            View Dashboard
+          </Button>
+          <Button
+            mt={10}
+            backgroundColor="white"
+            color="gray.900"
+            variant="outline"
+            fontWeight="medium"
+            size="md"
+            _hover={{ bg: 'gray.300' }}
+            _active={{
+              bg: 'gray.100',
+              transform: 'scale(0.95)',
+            }}
+            onClick={() => auth.signOut()}
+          >
+            Sign Out
+          </Button>
+        </>
       ) : (
-        // <Button onClick={() => auth.signOut()}>Sign Out</Button>
         <Box d="flex" flexDirection="column" mt={100}>
           <Button
             leftIcon={<FaGithub />}
             backgroundColor="gray.900"
             fontWeight="medium"
             color="white"
-            size="sm"
+            size="md"
             type="button"
-            _hover={{ bg: 'gray.800' }}
+            _hover={{ bg: 'gray.700' }}
             _active={{
               bg: 'gray.100',
               transform: 'scale(0.95)',
@@ -81,7 +97,7 @@ const Home = () => {
             color="gray.900"
             variant="outline"
             leftIcon={<FcGoogle />}
-            size="sm"
+            size="md"
             fontWeight="medium"
             type="button"
             _hover={{ bg: 'gray.100' }}

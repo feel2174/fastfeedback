@@ -1,7 +1,6 @@
 import React from 'react';
 import { Flex, Link, Stack, Avatar, Icon } from '@chakra-ui/react';
 import { useAuth } from '@/lib/auth';
-import Head from 'next/head';
 import NextLink from 'next/link';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
