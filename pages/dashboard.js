@@ -10,18 +10,26 @@ const DashBoard = () => {
   const { user } = useAuth();
   const { data } = useSWR(user ? ['api/sites', user.token] : null, fetcher);
 
-  if (!data) {
-    return (
-      <DashBoardShell title="DashBoard">
-        <SiteTableHeader />
-        <SiteTableSkeleton />
-      </DashBoardShell>
-    );
-  }
+  // if (!data) {
+  //   return (
+  //     <DashBoardShell title="DashBoard">
+  //       <SiteTableHeader />
+  //       <SiteTableSkeleton />
+  //     </DashBoardShell>
+  //   );
+  // }
   return (
     <DashBoardShell title="DashBoard">
       <SiteTableHeader />
-      {data.sites ? <SiteTable sites={data.sites} /> : <EmptyState />}
+      <>
+        {!data ? (
+          <SiteTableSkeleton />
+        ) : data.sites ? (
+          <SiteTable sites={data.sites} />
+        ) : (
+          <EmptyState />
+        )}
+      </>
     </DashBoardShell>
   );
 };

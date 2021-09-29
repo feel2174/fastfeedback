@@ -6,7 +6,7 @@ const EmptyState = () => (
     w="100%"
     justify="center"
     backgroundColor="white"
-    p={16}
+    mt={16}
     direction="column"
     align="center"
     borderRadius={8}
@@ -17,7 +17,7 @@ const EmptyState = () => (
     <Text mb={4} color="black">
       Lets get started
     </Text>
-    <AddSiteModal>Add Your First site</AddSiteModal>
+    <AddSiteModal>Add Your Site</AddSiteModal>
   </Flex>
 );
 

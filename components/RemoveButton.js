@@ -21,8 +21,9 @@ const RemoveButton = (props) => {
   const auth = useAuth();
   const deleteFeedItem = () => {
     mutate(
-      ['api/feedback', auth.user.token],
+      ['/api/feedback', auth.user.token],
       async (data) => {
+        console.log(data);
         return {
           feedback: data.feedback.filter(
             (feedback) => feedback.id !== feedbackId,
