@@ -38,8 +38,8 @@ const DashBoardShell = (props) => {
                 />
               </Icon>
             </NextLink>
-            <NextLink href="/dashboard">
-              <Link>DashBoard</Link>
+            <NextLink href="/sites">
+              <Link>Sites</Link>
             </NextLink>
             <NextLink href="/feedback">
               <Link>Feedback</Link>

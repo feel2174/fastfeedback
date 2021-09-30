@@ -12,12 +12,12 @@ const EmptyState = () => (
     borderRadius={8}
   >
     <Heading mb={2} size="md" color="black" fontWeight="bold">
-      You have not added any sites.
+      There is not any feedback
     </Heading>
     <Text mb={4} color="black">
       Lets get started
     </Text>
-    <AddSiteModal>Add Your Site</AddSiteModal>
+    <Text mb={4}>Share Your Site</Text>
   </Flex>
 );
 

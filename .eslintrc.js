@@ -21,7 +21,6 @@ module.exports = {
         'react/jsx-uses-vars': 'error',
         'react/react-in-jsx-scope': 'off',
         'react/prop-types': 'off',
-        "no-multiple-empty-lines": 'error',
         'react/display-name': 'off',
         'react/no-children-prop': 'off',
     },
