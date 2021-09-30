@@ -9,9 +9,10 @@ import Feedback from '@/components/Feedback/Feedback';
 import DashBoardShell from '@/components/Dashboard/DashboardShell';
 import FeedbackLink from '@/components/Feedback/FeedbackLink';
 
-export async function getStaticProps(context) {
-  const siteId = context.params.siteId;
+export async function getStaticProps({ params }) {
+  const siteId = params.siteId;
   const { feedback } = await getAllFeedback(siteId);
+
   return {
     props: {
       initialFeedback: feedback,
@@ -22,6 +23,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   const { sites } = await getAllSites();
+
   const paths = sites.map((site) => ({
     params: {
       siteId: site.id.toString(),
@@ -37,6 +39,7 @@ const SiteFeedback = (props) => {
   const { initialFeedback } = props;
   const auth = useAuth();
   const router = useRouter();
+
   const inputEl = useRef(null);
   const [allFeedback, setAllFeedback] = useState(initialFeedback);
   const onSubmit = (e) => {

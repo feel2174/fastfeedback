@@ -16,7 +16,7 @@ const SiteTableHeader = () => {
         justifyContent={'space-between'}
         flexDirection={['column', 'column', 'row']}
       >
-        <Heading color="black" mb={8}>
+        <Heading as="h1" color="black" mb={8}>
           DashBoard
         </Heading>
         <AddSiteModal>+ Add Site</AddSiteModal>

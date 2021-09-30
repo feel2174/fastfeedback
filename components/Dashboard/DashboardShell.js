@@ -8,22 +8,22 @@ import { useRouter } from 'next/router';
 const DashBoardShell = (props) => {
   const { children, title = 'Fast FeedBack' } = props;
   const auth = useAuth();
-  const { asPath } = useRouter();
-  const url = `https://fastfeedback-orcin.vercel.app${asPath}`;
+
+  const { pathname } = useRouter();
+
+  const url = `https://fastfeedback-orcin.vercel.app${pathname}`;
   return (
     <>
-      <NextSeo
-        title={title}
-        canonical={url}
-        openGraph={{ url, title }}
-      ></NextSeo>
-      {/* <Head>
-        <title>{title}</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head> */}
+      <NextSeo title={title} canonical={url} openGraph={{ url, title }} />
+
       <Flex flexDirection="column">
-        <Flex alignItems="center" justifyContent="space-between" px={8} py={4}>
+        <Flex
+          alignItems="center"
+          justifyContent="space-between"
+          px={8}
+          py={4}
+          as="nav"
+        >
           <Stack
             spacing={4}
             isInline
@@ -51,7 +51,11 @@ const DashBoardShell = (props) => {
                 Log Out
               </Link>
             )}
-            <Avatar size="sm" src={auth.user?.photoUrl} />
+            <Avatar
+              alt="social_profile_image"
+              size="sm"
+              src={auth.user?.photoUrl}
+            />
           </Flex>
         </Flex>
         <Flex

@@ -25,7 +25,7 @@ const AddSiteModal = ({ children }) => {
   const { register, handleSubmit } = useForm();
   const toast = useToast();
   const auth = useAuth();
-  const { data } = useSWR('api/sites', fetcher);
+  // const { data } = useSWR('api/sites', fetcher);
 
   const onCreateSite = ({ name, url }) => {
     const newSite = {
@@ -39,7 +39,7 @@ const AddSiteModal = ({ children }) => {
       title: 'Success!',
       description: "We've added your site.",
       status: 'success',
-      duration: 3000,
+      duration: 2000,
       isClosable: true,
     });
     mutate(

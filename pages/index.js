@@ -1,8 +1,10 @@
 import { useAuth } from '@/lib/auth';
 import { Heading, Button, Flex, Box, Text } from '@chakra-ui/react';
 import Head from 'next/head';
-import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
+import useSWR from 'swr';
+
 const Home = () => {
   const auth = useAuth();
 
@@ -26,7 +28,7 @@ const Home = () => {
         />
       </Head>
       <Heading>Welcome to Fast Feedback</Heading>
-      <Heading size="md" my={10} color="gray.500">
+      <Heading size="md" color="gray.500">
         Get feedback on your site instantly
       </Heading>
       {auth.user?.photoUrl && (
