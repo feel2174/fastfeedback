@@ -20,7 +20,6 @@ const SiteTable = (props) => {
         {sites.map((site) => (
           <Box as="tr" key={site.url}>
             <Td fontWeight="medium">
-              {' '}
               <NextLink
                 href="/sites/[siteId]"
                 as={`/sites/${site.id}`}
