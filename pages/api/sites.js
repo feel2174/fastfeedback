@@ -1,13 +1,3 @@
-// import { getAllSites } from '@/lib/db-admin';
-
-// export default async (_, res) => {
-//   const { sites, error } = await getAllSites();
-
-//   if (error) {
-//     res.status(500).json({ error });
-//   }
-//   res.status(200).json({ sites });
-// };
 import { auth } from '@/lib/firebase-admin';
 import { getUserSites } from '@/lib/db-admin';
 import { formatObjectKeys, logger } from '@/utils/logger';
@@ -30,7 +20,7 @@ export default async (req, res) => {
           statusCode: res.statusCode,
         },
       },
-      // error.message,
+      error.message,
     );
 
     res.status(500).json({ error });
