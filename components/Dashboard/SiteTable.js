@@ -12,7 +12,7 @@ const SiteTable = (props) => {
         <Tr>
           <Th>Name</Th>
           <Th>Site Link</Th>
-          <Th>Feedback Link</Th>
+          <Th>Feedback</Th>
           <Th>Date Added</Th>
         </Tr>
       </thead>
@@ -20,8 +20,11 @@ const SiteTable = (props) => {
         {sites.map((site) => (
           <Box as="tr" key={site.url}>
             <Td fontWeight="medium">
-              {' '}
-              <NextLink href="/p/[siteId]" as={`/p/${site.id}`} passHref>
+              <NextLink
+                href="/sites/[siteId]"
+                as={`/sites/${site.id}`}
+                passHref
+              >
                 <Link fontWeight="medium">{site.name}</Link>
               </NextLink>
             </Td>

@@ -21,7 +21,7 @@ const Home = () => {
           dangerouslySetInnerHTML={{
             __html: `
           if (document.cookie && document.cookie.includes('fast-feedback-auth')) {
-            window.location.href = "/dashboard"
+            window.location.href = "/sites"
           }
         `,
           }}
@@ -43,7 +43,7 @@ const Home = () => {
         <>
           <Button
             as="a"
-            href="/dashboard"
+            href="/sites"
             mt={10}
             backgroundColor="white"
             color="gray.900"
@@ -56,7 +56,7 @@ const Home = () => {
               transform: 'scale(0.95)',
             }}
           >
-            View Dashboard
+            View Sites
           </Button>
           <Button
             mt={10}

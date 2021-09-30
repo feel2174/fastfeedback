@@ -19,7 +19,7 @@ const DashBoard = () => {
   //   );
   // }
   return (
-    <DashBoardShell title="DashBoard">
+    <DashBoardShell title="Sites">
       <SiteTableHeader />
       <>
         {!data ? (

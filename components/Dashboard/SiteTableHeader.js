@@ -17,7 +17,7 @@ const SiteTableHeader = () => {
         flexDirection={['column', 'column', 'row']}
       >
         <Heading as="h1" color="black" mb={8}>
-          DashBoard
+          Sites
         </Heading>
         <AddSiteModal>+ Add Site</AddSiteModal>
       </Flex>

@@ -58,7 +58,7 @@ const SiteFeedback = (props) => {
   };
   return (
     <>
-      <DashBoardShell title="View FeedBack">
+      <DashBoardShell title="FeedBack">
         <Box
           display="flex"
           flexDirection="column"
