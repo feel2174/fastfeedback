@@ -8,12 +8,14 @@ import { useRouter } from 'next/router';
 const DashBoardShell = (props) => {
   const { children, title = 'Fast FeedBack' } = props;
   const auth = useAuth();
+
   const { pathname } = useRouter();
 
   const url = `https://fastfeedback-orcin.vercel.app${pathname}`;
   return (
     <>
       <NextSeo title={title} canonical={url} openGraph={{ url, title }} />
+
       <Flex flexDirection="column">
         <Flex
           alignItems="center"

@@ -30,7 +30,9 @@ export default async (req, res) => {
           statusCode: res.statusCode,
         },
       },
+
       // error.message,
+
     );
 
     res.status(500).json({ error });
